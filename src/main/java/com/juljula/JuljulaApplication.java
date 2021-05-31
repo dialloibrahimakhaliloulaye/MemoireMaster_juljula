@@ -25,9 +25,9 @@ public class JuljulaApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        categoryRepository.save(new Category(null, "Ordinateurs", null, null));
-        categoryRepository.save(new Category(null, "Imprimantes", null, null));
-        categoryRepository.save(new Category(null, "Téléphone", null, null));
+        categoryRepository.save(new Category(null, "Ordinateurs", null, null, null));
+        categoryRepository.save(new Category(null, "Imprimantes", null, null, null));
+        categoryRepository.save(new Category(null, "Téléphone", null, null, null));
         Random rnd=new Random();
         categoryRepository.findAll().forEach(c->{
             for (int i = 0; i < 10; i++) {
@@ -39,6 +39,7 @@ public class JuljulaApplication implements CommandLineRunner {
                 p.setAvailable(rnd.nextBoolean());
                 p.setSelected(rnd.nextBoolean());
                 p.setCategory(c);
+                p.setPhotoName("unknow.png");
                 productRepository.save(p);
             }
         });
